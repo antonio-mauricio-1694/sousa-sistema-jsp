@@ -11,7 +11,7 @@ import model.ModelLogin;
 import java.io.IOException;
 
 
-@WebServlet("/ServletLOgar")
+@WebServlet(urlPatterns = {"/principal/ServletLOgar","/ServletLOgar"})
 public class ServletLOgar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
