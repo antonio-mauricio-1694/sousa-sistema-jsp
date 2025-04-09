@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>sistema sousa</title>
 </head>
 <body>
 	<h1>Seja Bem vindo ao Sistema Sousa</h1>
 
 	<form action="ServletLOgar" method="post">
+	<input type="hidden" value="<%= request.getParameter("url")%> " name="url">
 
 		<table>
 			<tr>

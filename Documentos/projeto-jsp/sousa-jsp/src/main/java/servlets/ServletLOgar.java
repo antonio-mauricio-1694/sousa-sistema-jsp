@@ -30,6 +30,7 @@ public class ServletLOgar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
+		String url = request.getParameter("url");
 		
 		if(login != null && !login.isEmpty() && senha != null && !senha.isEmpty()) {
 			ModelLogin modelLogin = new ModelLogin();
@@ -39,7 +40,12 @@ public class ServletLOgar extends HttpServlet {
 			if(modelLogin.getLogin().equalsIgnoreCase("isluc") && modelLogin.getSenha().equalsIgnoreCase("1234")) { //simulando login
 				
 				request.getSession().setAttribute("usuario", modelLogin.getLogin());
-				RequestDispatcher redirecionar = request.getRequestDispatcher("principal/indexPrinc.jsp");
+				
+				if(url == null || url.equals("null")) {
+					url = "principal/indexPrinc.jsp";
+				}
+				
+				RequestDispatcher redirecionar = request.getRequestDispatcher("principal/indexPrinc.jsp");//principal/indexPrinc.jsp
 				redirecionar.forward(request, response);
 				
 			}else {
