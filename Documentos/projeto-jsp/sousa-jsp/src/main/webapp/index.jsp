@@ -19,7 +19,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(45deg, cyan, yellow);
+            background: linear-gradient(45deg,#788184 , #023f77);
             color: #333;
         }
 
@@ -28,11 +28,11 @@
             margin-top: 0;
             margin-bottom: 20px;
             text-align: center;
-            color: black; /* Cor do texto */
+            color: #e2e2e2; /* Cor do texto */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Contorno */
         }
         form {
-            background-color: black; /* Alterado para fundo preto */
+             background: linear-gradient(45deg,black , #023f77); /* Alterado para fundo preto */
             padding: 80px;
             border-radius: 50px;
             box-shadow: 0 4px 6px white);
@@ -58,15 +58,15 @@
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #ff5733; /* Cor de destaque */
-            color: white;
+            background-color: #2EDFF2; /* Cor de destaque */
+            color: black;
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #e64e2d;
+            background-color: #d5ebf2;
         }
 
         h4 {
@@ -76,32 +76,57 @@
     </style>
 </head>
 <body>
-   <h1>Sistema Sousa</h1>
+  <h1>Sistema Sousa</h1>
 
-    <form action="ServletLOgar" method="post">
-        <input type="hidden" value="<%=request.getParameter("url")%>" name="url">
-        <table>
-            <tr>
-                <td><label for="login">Login:</label></td>
-            </tr>
-            <tr>
-                <td><input type="text" id="login" name="login" placeholder="Digite seu login"></td>
-            </tr>
-            <tr>
-                <td><label for="senha">Senha:</label></td>
-            </tr>
-            <tr>
-                <td><input type="password" id="senha" name="senha" placeholder="Digite sua senha"></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="acesar"></td>
-            </tr>
-        </table>
-    </form>
+  <form action="ServletLOgar" method="post" class="row g-3 needs-validation" novalidate>
+    <input type="hidden" value="<%=request.getParameter("url")%>" name="url">
+    <table>
+      <tr>
+        <td><label for="login">Login:</label></td>
+      </tr>
+      <tr>
+        <td><input type="text" id="login" name="login" placeholder="Digite seu login" required></td>
+      </tr>
+      <tr>
+        <td><label for="senha">Senha:</label></td>
+      </tr>
+      <tr>
+        <td><input type="password" id="senha" name="senha" placeholder="Digite sua senha" required></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Acessar"></td>
+      </tr>
+    </table>
+  </form>
 
-    <h4>${msg}</h4>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <h4>${msg}</h4>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+    (function () {
+      'use strict';
+
+      // Seleciona todos os formulários com a classe "needs-validation"
+      var forms = document.querySelectorAll('.needs-validation');
+
+      // Aplica a validação personalizada a cada formulário
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Exibe alerta personalizado
+            alert('Por favor, preencha todos os campos obrigatórios corretamente.');
+          }
+
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
 </body>
-</html>
+
 
 </html>
