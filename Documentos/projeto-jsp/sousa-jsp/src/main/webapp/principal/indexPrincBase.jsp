@@ -32,7 +32,7 @@
                                     <!-- Page-body start -->
                                     <div class="page-body">
                                         <div class="row">
-                                         <h1>conteudo da pagina</h1>
+                                         <h1>Pagina base para criação de novas paginas</h1>
                                         </div>
                                     </div>
                                     <!-- Page-body end -->
